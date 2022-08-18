@@ -15,7 +15,7 @@
     <title>{% block title %}Soil Testing Project{% endblock title %}</title>
 
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <div class="container-fluid">
@@ -28,9 +28,12 @@
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'map' %}">Map</a>
+                </li>
                 {% if user.is_authenticated %}
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
+                    <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
@@ -57,10 +60,12 @@
         {% block content %}
         {% endblock content %}
     </div>
-    <footer class="container">
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
         <p class="float-end"><a href="#">Back to top</a></p>
         <p>&copy; 2022 Swansea University &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
+      </div>
+    </footer>
 
       <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 

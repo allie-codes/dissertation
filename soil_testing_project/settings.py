@@ -66,6 +66,7 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 #come back and change this when adding an SMTP server to send emails
+# 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
 
 ACCOUNT_SESSION_REMEMBER = True
@@ -170,3 +171,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
+DEFAULT_FROM_EMAIL = 'admin@soiltesting.com'
