@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     #'allauth.socialaccount', do this later after registering a domain
-    #'allauth.socialaccount.providers.google'
+    #'allauth.socialaccount.providers.google',
 
     # local
     'users.apps.UsersConfig',
