@@ -25,4 +25,5 @@ urlpatterns = [
 
     # local apps
     path('', include('pages.urls')),
+    path('participate/', include('participants.urls')),
 ]
