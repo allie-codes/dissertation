@@ -100,6 +100,7 @@ ANIMAL_SIGHTING_CHOICES = (
     ('seasonally', 'Seasonally'),
     ('yearly', 'Yearly'),
     ('never', 'Never'),
+    ('unknown', 'Unknown'),
 )
 
 YES_NO_CHOICES = (
@@ -113,10 +114,7 @@ class Participant(models.Model):
     name = models.CharField(max_length=200)
     preferred_name = models.CharField(max_length=200)
     email = models.EmailField(default=False)
-    contact_preference = models.CharField(
-        max_length=10,
-        choices = YES_NO_CHOICES,
-        default = 'yes',)
+    contact_preference = models.BooleanField(default=False)
     address = models.CharField(max_length=400)
     year_property_built = models.DateField
     property_type = models.CharField(
@@ -191,6 +189,9 @@ class Participant(models.Model):
         choices = VEG_SPECIES_CHOICES,
         default = 'lettuce',
     )
+    veg_species_other = models.CharField(
+        max_length=200,
+        blank=True)
     raised_beds = models.CharField(
         max_length=10,
         choices = YES_NO_CHOICES,
@@ -315,12 +316,13 @@ class Participant(models.Model):
     )
     other_notable_wildlife = models.CharField(
         max_length=200,
-        blank=True)
-    
-    #unique_id = models.UUIDField(
+        blank=True)   
+    #id = models.UUIDField(
      #   primary_key=True,
       #  default=uuid.uuid5,
-       # editable=False)
+       # editable=False,
+        #unique=True)
+    soil_sample_label = models.CharField(max_length=200)
     sample_1_description = models.CharField(max_length=200)
     sample_2_description = models.CharField(max_length=200)
     sample_3_description = models.CharField(max_length=200)

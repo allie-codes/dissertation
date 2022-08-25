@@ -27,14 +27,14 @@
               <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="{% url 'participate' %}">Participate</a>
-                </li>
+                </li>                
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="{% url 'map' %}">Map</a>
                 </li>
                 {% if user.is_authenticated %}
+                  <li class="nav-item">
+                    <a class="nav-link"  href="{% url 'participate' %}">Participate</a>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
                   </li>
