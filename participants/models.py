@@ -1,5 +1,7 @@
 import uuid
+from django.contrib.auth import get_user_model
 from django.db import models
+from users.models import CustomUser
 
 # choices
 
@@ -111,9 +113,13 @@ YES_NO_CHOICES = (
 
 # Create your models here.
 class Participant(models.Model):
+    user = models.ForeignKey(get_user_model(), 
+    on_delete=models.CASCADE, 
+    default=True, 
+    editable=False,)
     name = models.CharField(max_length=200)
     preferred_name = models.CharField(max_length=200)
-    email = models.EmailField(default=False)
+    email = models.EmailField(max_length=100, default=True)
     contact_preference = models.BooleanField(default=False)
     address = models.CharField(max_length=400)
     year_property_built = models.DateField
@@ -322,7 +328,8 @@ class Participant(models.Model):
       #  default=uuid.uuid5,
        # editable=False,
         #unique=True)
-    soil_sample_label = models.CharField(max_length=200)
+    soil_sample_label = models.CharField(max_length=200, blank=True)
+    sample_label = models.CharField(primary_key=True, default=uuid.uuid4().hex[:5].upper(), max_length=50, editable=True, unique=True)
     sample_1_description = models.CharField(max_length=200)
     sample_2_description = models.CharField(max_length=200)
     sample_3_description = models.CharField(max_length=200)

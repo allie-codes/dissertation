@@ -1,4 +1,5 @@
 from pipes import Template
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 from django.shortcuts import render
 
@@ -9,8 +10,12 @@ class HomePageView(TemplateView):
 class AboutPageView(TemplateView):
     template_name = 'about.html'
 
-class DashboardPageView(TemplateView):
-    template_name = 'dashboard.html'
+class ResultsPageView(LoginRequiredMixin, TemplateView):
+    template_name = 'results.html'
+    login_url = 'account_login'
 
 class MapPageView(TemplateView):
     template_name = 'map.html'
+
+class InstructionsPageView(TemplateView):
+    template_name = 'instructions.html'

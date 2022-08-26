@@ -3,6 +3,6 @@ from .models import Participant
 
 # Register your models here.
 class ParticipantAdmin(admin.ModelAdmin):
-    list_display = ("name", "address", "email",)
+    list_display = ("name", "sample_label", "address", "user",)
 
 admin.site.register(Participant, ParticipantAdmin)

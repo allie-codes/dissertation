@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Soil Test Results{% endblock title %}
+
+{% block content %}
+<h2>Report for XXX</h2>
+<h4>Dear {{ participants.preffered_name }},</h4>
+<h5>The results of the trace metal analysis of your provided soil samples by X-ray fluoresence spectometry is provided below.</h5>
+<p>The analysis of soil is subject to various limitations, including soil moisture, grain size, organic content, and sampling. In a standard laboratory test, additional preparation of soil samples would occur and more replicated measurements would allow for greater reliability and precision of the results. Therefore, we advise that the analyses provided below are subject to such limitations and should be taken as a guide only. If you require a more detailed analysis, we recommend that you submit samples to an accredited laboratory for soil analysis.</p>
+<h2>Table</h2>
+<p>The results of your soil analysis (all numbers are given as ppm = parts per million; ppm is equivalent to 1 mg per kg).</p>
+<p>As = arsenic; Cd = cadmium; Cr = chromium; Cu = copper; Mn = manganese; Pb = lead; Ni = nickel; Zn = zinc</p>
+<p>Patterns of trace metal concentrations mapped by this project can be viewed on our interactive <a href={% url 'map' %}>map</a>.</p>
+<p>If you like your research project, please consider supporting this work with a donation.</p>
+<p>For questions and feedback, please contact us at <email>ecogardenhealth@swansea.ac.uk</email>.</p>
+<p>Thank you very much for your support!</p>
+<p>Kind regards,</p>
+<p>The EcoGardenHealth Research Team</p>
+<p>(Dr Konstans Wells and Dr Tamsyn Uren Webster)</p>
+<address>School of Biosciences, Geography, and Physics<br> Wallace Building<br> Swansea University<br> Swansea SA2 8PP</address>
+{% endblock content %}
