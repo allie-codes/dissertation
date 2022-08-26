@@ -116,7 +116,8 @@ class Participant(models.Model):
     user = models.ForeignKey(get_user_model(), 
     on_delete=models.CASCADE, 
     default=True, 
-    editable=False,)
+    editable=False,
+    related_name='participant')
     name = models.CharField(max_length=200)
     preferred_name = models.CharField(max_length=200)
     email = models.EmailField(max_length=100, default=True)
@@ -328,7 +329,7 @@ class Participant(models.Model):
       #  default=uuid.uuid5,
        # editable=False,
         #unique=True)
-    soil_sample_label = models.CharField(max_length=200, blank=True)
+    soil_sample_label = models.CharField(max_length=200, blank=True) #figure out how to delete this
     sample_label = models.CharField(primary_key=True, default=uuid.uuid4().hex[:5].upper(), max_length=50, editable=True, unique=True)
     sample_1_description = models.CharField(max_length=200)
     sample_2_description = models.CharField(max_length=200)
@@ -339,6 +340,8 @@ class Participant(models.Model):
 
     def __str__(self):
         return self.name
+    
+    
 
 
 
