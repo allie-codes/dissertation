@@ -16,3 +16,5 @@ class ParticipateSuccessView(LoginRequiredMixin, TemplateView):
     login_url = 'account_login'
 
 
+
+

@@ -1,3 +1,4 @@
+from urllib import request
 import uuid
 from django.contrib.auth import get_user_model
 from django.db import models
@@ -116,8 +117,8 @@ class Participant(models.Model):
     user = models.ForeignKey(get_user_model(), 
     on_delete=models.CASCADE, 
     default=True, 
-    editable=False,
-    related_name='participant')
+    editable=False,)
+    related_name='participant'
     name = models.CharField(max_length=200)
     preferred_name = models.CharField(max_length=200)
     email = models.EmailField(max_length=100, default=True)
