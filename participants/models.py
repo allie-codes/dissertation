@@ -1,8 +1,7 @@
-from urllib import request
 import uuid
-from django.contrib.auth import get_user_model
 from django.db import models
 from users.models import CustomUser
+from django.urls import reverse
 
 # choices
 
@@ -114,11 +113,10 @@ YES_NO_CHOICES = (
 
 # Create your models here.
 class Participant(models.Model):
-    user = models.ForeignKey(get_user_model(), 
+    user = models.ForeignKey(CustomUser, 
     on_delete=models.CASCADE, 
     default=True, 
-    editable=False,)
-    related_name='participant'
+    related_name='participant')
     name = models.CharField(max_length=200)
     preferred_name = models.CharField(max_length=200)
     email = models.EmailField(max_length=100, default=True)
@@ -341,6 +339,10 @@ class Participant(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('home')
+    
     
     
 
