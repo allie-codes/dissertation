@@ -329,8 +329,8 @@ class Participant(models.Model):
       #  default=uuid.uuid5,
        # editable=False,
         #unique=True)
-    soil_sample_label = models.CharField(max_length=200, blank=True) #figure out how to delete this
-    sample_label = models.CharField(primary_key=True, default=uuid.uuid4, max_length=50, editable=True,)
+    soil_sample_label = models.CharField(max_length=200, blank=True, editable=False) 
+    sample_label = models.CharField(primary_key=True, default=uuid.uuid4, max_length=50, editable=False)
     sample_1_description = models.CharField(max_length=200)
     sample_2_description = models.CharField(max_length=200)
     sample_3_description = models.CharField(max_length=200)

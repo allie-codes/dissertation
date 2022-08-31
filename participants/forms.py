@@ -66,5 +66,11 @@ class ParticipantForm(forms.ModelForm):
             'contact_preference': _('</br> Please tick this box if you are happy for us to contact you again for further questions and samples (in the future, we are planning to examine veg and invertebrate/biological samples from gardens, too.'),
             'agreement': _('<br> Please tick this box to indicate that you agree to participate in the soil testing project.')
         }
+
+    def clean_agreement(self):
+        agreement = self.cleaned_data['agreement']
+        if not agreement:
+            raise forms.ValidationError('You must tick the participant agreement box to proceed.')
+        return agreement
     
 
