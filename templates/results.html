@@ -4,7 +4,7 @@
 
 {% block content %}
 {% for participant in user.participant.all reversed %}
-<h2>Report for {{ participant.sample_label }}</h2>
+<h2>Report for {{ participant.soil_sample_label }}</h2>
 <h4>Dear {{ participant.preferred_name }},</h4>
 <h5>The results of the trace metal analysis of your provided soil samples by X-ray fluoresence spectometry is provided below.</h5>
 <p>The analysis of soil is subject to various limitations, including soil moisture, grain size, organic content, and sampling. In a standard laboratory test, additional preparation of soil samples would occur and more replicated measurements would allow for greater reliability and precision of the results. Therefore, we advise that the analyses provided below are subject to such limitations and should be taken as a guide only. If you require a more detailed analysis, we recommend that you submit samples to an accredited laboratory for soil analysis.</p>

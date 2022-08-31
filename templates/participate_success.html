@@ -8,7 +8,7 @@
 <p>This is your unique soil sample label number:</p>
 {% for participant in user.participant.all reversed %}
     {% if forloop.first %}
-        <h4>{{ participant.sample_label }}</h4>
+        <h4>{{ participant.soil_sample_label }}</h4>
     {% endif %}
 {% endfor %}
 <p>Please write it on all of your soil sample bags before delivering or posting them to the university.</p>

@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 class ParticipantForm(forms.ModelForm):
     class Meta:
         model = Participant
-        exclude = ['user']
+        exclude = ['user', 'sample_label', 'soil_sample_label']
         fields = '__all__'
         labels = {
             'name': _('Your full name (first name and surname):'),

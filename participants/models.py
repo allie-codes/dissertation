@@ -1,3 +1,4 @@
+import secrets
 import uuid
 from django.db import models
 from users.models import CustomUser
@@ -329,7 +330,7 @@ class Participant(models.Model):
        # editable=False,
         #unique=True)
     soil_sample_label = models.CharField(max_length=200, blank=True) #figure out how to delete this
-    sample_label = models.CharField(primary_key=True, default=uuid.uuid4().hex[:5].upper(), max_length=50, editable=True, unique=True)
+    sample_label = models.CharField(primary_key=True, default=uuid.uuid4, max_length=50, editable=True,)
     sample_1_description = models.CharField(max_length=200)
     sample_2_description = models.CharField(max_length=200)
     sample_3_description = models.CharField(max_length=200)
@@ -342,6 +343,14 @@ class Participant(models.Model):
 
     def get_absolute_url(self):
         return reverse('home')
+
+    def get_soil_sample_label(self):
+        number = secrets.token_hex(nbytes=4).upper()
+        return number
+
+    def save(self, *args, **kwargs):
+        self.soil_sample_label = self.get_soil_sample_label()
+        super(Participant, self).save(*args, **kwargs)
     
     
     
