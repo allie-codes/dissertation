@@ -114,10 +114,7 @@ YES_NO_CHOICES = (
 
 # Create your models here.
 class Participant(models.Model):
-    user = models.ForeignKey(CustomUser, 
-    on_delete=models.CASCADE, 
-    default=True, 
-    related_name='participant')
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=True, related_name='participant')
     name = models.CharField(max_length=200)
     preferred_name = models.CharField(max_length=200)
     email = models.EmailField(max_length=100, default='Please enter your email address')
