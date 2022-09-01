@@ -6,7 +6,8 @@ from django.urls import reverse
 # Create your models here.
 class Result(models.Model):
     #user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=True, related_name='user')
-    soil_sample_label = models.ForeignKey(Participant, on_delete=models.CASCADE, default=True, related_name='label_number')
+    participant_number = models.ForeignKey(Participant, on_delete=models.CASCADE, default=True, related_name='participant_number')
+    name = models.CharField(max_length=50, blank=True)
     sample_number = models.CharField(max_length=50)
     na = models.CharField(max_length=20)
     mg = models.CharField(max_length=20)
@@ -66,4 +67,15 @@ class Result(models.Model):
 
     def __str__(self):
         return self.sample_number
+
+    def get_absolute_url(self):
+        return reverse('home')
+
+    def get_participant_name(self):
+        name = Participant.name
+        return name
+
+    def save(self, *args, **kwargs):
+        self.name = self.get_participant_name()
+        super(Result, self).save(*args, **kwargs)
 

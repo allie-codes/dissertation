@@ -336,7 +336,7 @@ class Participant(models.Model):
     agreement = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.name
+        return self.soil_sample_label
 
     def get_absolute_url(self):
         return reverse('home')
