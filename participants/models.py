@@ -120,7 +120,7 @@ class Participant(models.Model):
     related_name='participant')
     name = models.CharField(max_length=200)
     preferred_name = models.CharField(max_length=200)
-    email = models.EmailField(max_length=100, default=True)
+    email = models.EmailField(max_length=100, default='Please enter your email address')
     contact_preference = models.BooleanField(default=False)
     address = models.CharField(max_length=400)
     year_property_built = models.DateField
