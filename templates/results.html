@@ -8,7 +8,65 @@
 <h4>Dear {{ participant.preferred_name }},</h4>
 <h5>The results of the trace metal analysis of your provided soil samples by X-ray fluoresence spectometry is provided below.</h5>
 <p>The analysis of soil is subject to various limitations, including soil moisture, grain size, organic content, and sampling. In a standard laboratory test, additional preparation of soil samples would occur and more replicated measurements would allow for greater reliability and precision of the results. Therefore, we advise that the analyses provided below are subject to such limitations and should be taken as a guide only. If you require a more detailed analysis, we recommend that you submit samples to an accredited laboratory for soil analysis.</p>
-<h2>Table</h2>
+
+{% if participant.participant_number.all %}
+<div class="container">
+    <h2>Table</h2>
+    <table class="table table-light table-striped">
+        <thead>
+            <tr>
+                <th>Sample</th>
+                <th>Description</th>
+                <th>Arsenic</th>
+                <th>Cadmium</th>
+                <th>Chromium</th>
+                <th>Copper</th>
+                <th>Manganese</th>
+                <th>Lead</th>
+                <th>Nickel</th>
+                <th>Zinc</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sample in participant.participant_number.all %}
+                <tr>
+                    <td>{{ sample.sample_number }}</td>
+                    {% if sample.sample_number == "Sample.1" %}
+                        <td>{{ participant.sample_1_description }}</td>
+                    {% endif %}
+                    {% if sample.sample_number == "Sample.2" %}
+                        <td>{{ participant.sample_2_description }}</td>
+                    {% endif %}
+                    {% if sample.sample_number == "Sample.3" %}
+                        <td>{{ participant.sample_3_description }}</td>
+                    {% endif %}
+                    {% if sample.sample_number == "Sample.4" %}
+                        <td>{{ participant.sample_4_description }}</td>
+                    {% endif %}
+                    {% if sample.sample_number == "Sample.5" %}
+                        <td>{{ participant.sample_5_description }}</td>
+                    {% endif %}
+                    <td>{{ sample.As }}</td>
+                    <td>{{ sample.cd }}</td>
+                    <td>{{ sample.cr }}</td>
+                    <td>{{ sample.cu }}</td>
+                    <td>{{ sample.mn }}</td>
+                    <td>{{ sample.pb }}</td>
+                    <td>{{ sample.ni }}</td>
+                    <td>{{ sample.zn }}</td>
+                </tr>
+            {% empty %}
+                <h3>Your results are not ready yet. Please check back later.</h3>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% if not participant.participant_number.all %}
+    <h3>Your results are not ready yet. Please check back later.</h3>
+{% endif %}
+
+
 <p>The results of your soil analysis (all numbers are given as ppm = parts per million; ppm is equivalent to 1 mg per kg).</p>
 <p>As = arsenic; Cd = cadmium; Cr = chromium; Cu = copper; Mn = manganese; Pb = lead; Ni = nickel; Zn = zinc</p>
 <p>Patterns of trace metal concentrations mapped by this project can be viewed on our interactive <a href={% url 'map' %}>map</a>.</p>

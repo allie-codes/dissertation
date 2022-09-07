@@ -1,3 +1,4 @@
+from xml.etree.ElementTree import tostring
 from django.db import models
 from participants.models import Participant
 from users.models import CustomUser
@@ -8,7 +9,6 @@ class Result(models.Model):
     #user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=True, related_name='user')
     participant_number = models.ForeignKey(Participant, on_delete=models.CASCADE, default=True, related_name='participant_number', blank=True)
     sample_label = models.CharField(max_length=50, blank=True)
-    #name = models.CharField(max_length=250, blank=True)
     sample_number = models.CharField(max_length=250)
     na = models.CharField(max_length=250)
     mg = models.CharField(max_length=250)
@@ -80,3 +80,5 @@ class Result(models.Model):
         self.participant_number = self.get_participant()
         super(Result, self).save(*args, **kwargs)
 
+    
+        
