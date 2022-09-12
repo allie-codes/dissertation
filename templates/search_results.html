@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+
+{% block title %}Soil Test Results{% endblock title %}
+
+{% block content %}
+
+{% for participant in participant_list.all reversed  %}
+
+    <div class="table-responsive">
+        <h3>{{ participant.name }} {{ participant.email }}</h3>
+        <table class="table table-light table-striped table-sm table-bordered">
+            <thead>
+                <tr>
+                    <th>Postcode</th>
+                    <th>Year Built</th>
+                    <th>Property Type</th>
+                    <th>Construction Material</th>
+                    <th>No of People</th>
+                    <th>Purpose of Garden</th>
+                    <th>Area for Growing Veg</th>
+                    <th>Avg Gardening Hrs</th>
+                    <th>Total Garden Area</th>
+                    <th>Sealed Garden Area</th>
+                    <th>Lawn Garden Area</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ participant.postcode }}</td>
+                    <td>{{ participant.year_property_built }}</td>
+                    {% if not participant.property_type_other %}
+                        <td>{{ participant.property_type }}</td>
+                    {% endif %}
+                    {% if participant.property_type_other %}
+                        <td>{{ participant.property_type_other }}</td>
+                    {% endif %}
+                    {% if not participant.construction_material_other %}
+                        <td>{{ participant.construction_material }}</td>
+                    {% endif %}
+                    {% if participant.construction_material_other %}
+                        <td>{{ participant.construction_material_other }}</td>
+                    {% endif %}
+                    <td>{{ participant.number_of_people }}</td>
+                    <td>{{ participant.purpose_of_garden }}</td>
+                    <td>{{ participant.area_for_growing_veg }}</td>
+                    <td>{{ participant.average_gardening_hours}}</td>
+                    <td>{{ participant.total_garden_area }}</td>
+                    <td>{{ participant.sealed_garden_area }}</td>
+                    <td>{{ participant.lawn_garden_area }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-light table-striped table-sm table-bordered">
+            <thead>
+                <tr>
+                    <th>Lawn Type</th>
+                    <th>Veg Garden Area</th>
+                    <th>Ornamental Plant Garden Area</th>
+                    <th>Natural Garden Area</th>
+                    <th>Veg Species</th>
+                    <th>Raised Beds</th>
+                    <th>Compost Use</th>
+                    <th>Compost Frequency</th>
+                    <th>Fertiliser Frequency</th>
+                    <th>Latest Compost Purchase</th>
+                    <th>Veg Pesticide</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ participant.lawn_type }}</td>
+                    <td>{{ participant.veg_garden_area }}</td>
+                    <td>{{ participant.ornamental_plant_garden_area }}</td>
+                    <td>{{ participant.natural_garden_area }}</td>
+                    {% if not participant.veg_species_other %}
+                        <td>{{ participant.veg_species }}</td>
+                    {% endif %}
+                    {% if participant.veg_species_other %}
+                        <td>{{ participant.veg_species}}</td>
+                    {% endif %}
+                    <td>{{ participant.raised_beds }}</td>
+                    <td>{{ participant.compost_use }}</td>
+                    <td>{{ participant.commercial_compost_frequency }}</td>
+                    <td>{{ participant.fertiliser_frequency }}</td>
+                    <td>{{ participant.latest_compost_purchase }}</td>
+                    <td>{{ participant.veg_pesticide }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-light table-striped table-sm table-bordered">
+            <thead>
+                <tr>
+                    <th>Ornamental Plant Fertiliser</th>
+                    <th>Ornamental Plant Pesticide</th>
+                    <th>Rubble</th>
+                    <th>Rubble Description</th>
+                    <th>Bird Feeders</th>
+                    <th>Pond</th>
+                    <th>House Sparrows</th>
+                    <th>Goldfinches</th>
+                    <th>Robins</th>
+                    <th>Wrens</th>
+                    <th>Cats</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ participant.ornamental_plant_fertiliser }}</td>
+                    <td>{{ participant.ornamental_plant_pesticide }}</td>
+                    <td>{{ participant.soil_rubble }}</td>
+                    <td>{{ participant.soil_rubble_description }}</td>
+                    <td>{{ participant.bird_feeders }}</td>
+                    <td>{{ participant.pond }}</td>
+                    <td>{{ participant.house_sparrow }}</td>
+                    <td>{{ participant.goldfinch }}</td>
+                    <td>{{ participant.robin }}</td>
+                    <td>{{ participant.wren }}</td>
+                    <td>{{ participant.domestic_cat }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-light table-striped table-sm table-bordered">
+            <thead>
+                <tr>
+                    <th>Red Foxes</th>
+                    <th>Hedgehogs</th>
+                    <th>Slow Worms</th>
+                    <th>Frogs/Toads</th>
+                    <th>Moles</th>
+                    <th>House Rats</th>
+                    <th>Bumblebees</th>
+                    <th>Ladybirds</th>
+                    <th>Butterflies</th>
+                    <th>Other Wildlife</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ participant.red_fox }}</td>
+                    <td>{{ participant.hedgehog }}</td>
+                    <td>{{ participant.slow_worm }}</td>
+                    <td>{{ participant.frog }}</td>
+                    <td>{{ participant.mole}}</td>
+                    <td>{{ participant.house_rat }}</td>
+                    <td>{{ participant.bumblebee }}</td>
+                    <td>{{ participant.ladybird }}</td>
+                    <td>{{ participant.butterfly }}</td>
+                    <td>{{ participant.other_notable_wildlife }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+        
+    {% if participant.participant_number.all %}
+        <div class="container">
+            <h3>Report for {{ participant.soil_sample_label }}</h3>
+            <table class="table table-light table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sample</th>
+                        <th>Description</th>
+                        <th>Arsenic</th>
+                        <th>Cadmium</th>
+                        <th>Chromium</th>
+                        <th>Copper</th>
+                        <th>Manganese</th>
+                        <th>Lead</th>
+                        <th>Nickel</th>
+                        <th>Zinc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sample in participant.participant_number.all %}
+                        <tr>
+                            <td>{{ sample.sample_number }}</td>
+                            {% if sample.sample_number == "Sample.1" %}
+                                <td>{{ participant.sample_1_description }}</td>
+                            {% endif %}
+                            {% if sample.sample_number == "Sample.2" %}
+                                <td>{{ participant.sample_2_description }}</td>
+                            {% endif %}
+                            {% if sample.sample_number == "Sample.3" %}
+                                <td>{{ participant.sample_3_description }}</td>
+                            {% endif %}
+                            {% if sample.sample_number == "Sample.4" %}
+                                <td>{{ participant.sample_4_description }}</td>
+                            {% endif %}
+                            {% if sample.sample_number == "Sample.5" %}
+                                <td>{{ participant.sample_5_description }}</td>
+                            {% endif %}
+                            <td>{{ sample.As }}</td>
+                            <td>{{ sample.cd }}</td>
+                            <td>{{ sample.cr }}</td>
+                            <td>{{ sample.cu }}</td>
+                            <td>{{ sample.mn }}</td>
+                            <td>{{ sample.pb }}</td>
+                            <td>{{ sample.ni }}</td>
+                            <td>{{ sample.zn }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+
+    {% if not participant.participant_number.all %}
+        <h3>The results for {{ participant.name }} have not been uploaded yet.</h3>
+    {% endif %}
+
+{% endfor %}
+
+{% endblock content %}

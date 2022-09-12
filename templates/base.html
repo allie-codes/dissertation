@@ -53,11 +53,13 @@
                   </li>
                 {% endif %}
               </ul>
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              {% if request.user.is_superuser %}
+              <form class="d-flex" role="search" action="{% url 'search_results' %}" method="get">
+                <input name="q" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 {% csrf_token %}
                 <button class="btn btn-outline-success" type="submit">Search</button>
               </form>
+              {% endif %}
             </div>
           </div>
         </nav>
