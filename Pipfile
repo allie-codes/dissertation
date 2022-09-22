@@ -9,6 +9,9 @@ psycopg2-binary = "*"
 django-crispy-forms = "*"
 django-allauth = "*"
 geopy = "*"
+plotly = "*"
+pandas = "*"
+chart-studio = "*"
 
 [dev-packages]
 

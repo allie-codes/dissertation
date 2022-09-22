@@ -1,5 +1,6 @@
 from django.db import models
 from participants.models import Participant
+from map.models import MapCoordinate
 from django.urls import reverse
 
 # Create your models here.
@@ -62,6 +63,8 @@ class Result(models.Model):
     bi = models.CharField(max_length=250)
     th = models.CharField(max_length=250)
     u = models.CharField(max_length=250)
+    latitude = models.CharField(max_length=50, default=0.0)
+    longitude = models.CharField(max_length=50, default=0.0)
 
     def __str__(self):
         return self.sample_number
@@ -73,8 +76,20 @@ class Result(models.Model):
         participant = Participant.objects.filter(soil_sample_label=self.sample_label).first()
         return participant
 
+    def get_latitude(self):
+        map_coordinate = MapCoordinate.objects.filter(participant = self.participant_number).first()
+        latitude = map_coordinate.latitude
+        return latitude
+
+    def get_longitude(self):
+        map_coordinate = MapCoordinate.objects.filter(participant = self.participant_number).first()
+        longitude = map_coordinate.longitude
+        return longitude
+
     def save(self, *args, **kwargs):
         self.participant_number = self.get_participant()
+        self.latitude = self.get_latitude()
+        self.longitude = self.get_longitude()
         super(Result, self).save(*args, **kwargs)
 
     
