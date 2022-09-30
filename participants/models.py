@@ -328,7 +328,7 @@ class Participant(models.Model):
     sample_2_description = models.CharField(max_length=200)
     sample_3_description = models.CharField(max_length=200)
     sample_4_description = models.CharField(max_length=200)
-    sample_5_description = models.CharField(max_length=200)
+    sample_5_description = models.CharField(max_length=200) 
     agreement = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
 
@@ -343,7 +343,8 @@ class Participant(models.Model):
         return number
 
     def save(self, *args, **kwargs):
-        self.soil_sample_label = self.get_soil_sample_label()
+        if self.pk is None:
+            self.soil_sample_label = self.get_soil_sample_label()
         super(Participant, self).save(*args, **kwargs)
     
     
