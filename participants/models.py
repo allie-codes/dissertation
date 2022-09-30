@@ -322,7 +322,7 @@ class Participant(models.Model):
     other_notable_wildlife = models.CharField(
         max_length=200,
         blank=True)   
-    soil_sample_label = models.CharField(max_length=200, blank=True, editable=True, unique=True) 
+    soil_sample_label = models.CharField(max_length=200, blank=True, editable=False, unique=True) 
     participant_code = models.CharField(primary_key=True, default=uuid.uuid4, max_length=50, editable=False)
     sample_1_description = models.CharField(max_length=200)
     sample_2_description = models.CharField(max_length=200)
@@ -330,6 +330,7 @@ class Participant(models.Model):
     sample_4_description = models.CharField(max_length=200)
     sample_5_description = models.CharField(max_length=200)
     agreement = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.soil_sample_label

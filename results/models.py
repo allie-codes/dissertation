@@ -2,6 +2,9 @@ from django.db import models
 from participants.models import Participant
 from map.models import MapCoordinate
 from django.urls import reverse
+import random
+import sys
+import math
 
 # Create your models here.
 class Result(models.Model):
@@ -65,6 +68,8 @@ class Result(models.Model):
     u = models.CharField(max_length=250)
     latitude = models.CharField(max_length=50, default=0.0)
     longitude = models.CharField(max_length=50, default=0.0)
+    rand_lat = models.FloatField(blank=True, default=0.0)
+    rand_long = models.FloatField(blank=True, default=0.0)
 
     def __str__(self):
         return self.sample_number
@@ -86,10 +91,39 @@ class Result(models.Model):
         longitude = map_coordinate.longitude
         return longitude
 
+    def generate_random_latitude(self):
+        radius = 7000
+        radius_in_degrees = radius/111300
+        r = radius_in_degrees
+        x0 = float(self.get_latitude())
+        u = float(random.uniform(0.0, 1.0))
+        v = float(random.uniform(0.0, 1.0))
+        w = r * math.sqrt(u)
+        t = 2 * math.pi * v
+        x = w * math.cos(t)
+        random_lat = x + x0
+        return float(random_lat)
+
+    def generate_random_longitude(self):
+        radius = 7000
+        radius_in_degrees = radius/111300
+        r = radius_in_degrees
+        y0 = float(self.get_longitude())
+        u = float(random.uniform(0.0, 1.0))
+        v = float(random.uniform(0.0, 1.0))
+        w = r * math.sqrt(u)
+        t = 2 * math.pi * v
+        y = w * math.sin(t)
+        random_long = y + y0
+        return float(random_long)
+
+
     def save(self, *args, **kwargs):
         self.participant_number = self.get_participant()
         self.latitude = self.get_latitude()
         self.longitude = self.get_longitude()
+        self.rand_lat = self.generate_random_latitude()
+        self.rand_long = self.generate_random_longitude()
         super(Result, self).save(*args, **kwargs)
 
     

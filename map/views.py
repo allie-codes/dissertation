@@ -5,6 +5,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
+#move this to a separate file
 mapbox_access_token = 'pk.eyJ1IjoiYWxsaWVmZzkxIiwiYSI6ImNsODRmNGpjYjBhNGUzdXF0dnQ5YWN0NmUifQ.8_NLoo94bMMokEQ_wgBNPQ'
 
 # Create your views here.
@@ -16,23 +17,20 @@ class MapPageView(TemplateView):
 
         px.set_mapbox_access_token(mapbox_access_token)
 
-        df = pd.DataFrame.from_records(Result.objects.all().values('As', 'cd', 'cr', 'cu', 'mn', 'pb', 'ni', 'zn', 'latitude', 'longitude'))
+        df = pd.DataFrame.from_records(Result.objects.all().values('As', 'cd', 'cr', 'cu', 'mn', 'pb', 'ni', 'zn', 'rand_lat', 'rand_long'))
         df['As'] = pd.to_numeric(df['As'], errors='coerce')
         df = df.replace('ND', 0, regex=True)
         df = df.astype(float)
-        #df = df.astype({'As':'float', 'cd':'float', 'cr':'float', 'cu':'float', 'mn':'float', 'pb':'float', 'ni':'float', 'zn':'float'})
 
-        #figure = px.scatter_geo(df, lat = 'latitude', lon = 'longitude', projection='natural earth', color='As')
-
-        figure = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude', color = 'As', custom_data = ['As', 'cd', 'cr', 'cu', 'mn', 'pb', 'ni', 'zn'], color_continuous_scale = px.colors.cyclical.IceFire, size_max = 15, zoom = 10, range_color = (0, 1000), labels = {'As': 'Arsenic'})
-        figure1 = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude', color = 'cd', custom_data = ['cd'], labels = {'cd': 'Cadmium'})
-        figure2 = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude', color = 'cr', custom_data = ['cr'])
-        figure3 = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude', color = 'cu', custom_data = ['cu'])
-        figure4 = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude', color = 'mn', custom_data = ['mn'])
-        figure5 = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude', color = 'pb', custom_data = ['pb'])
-        figure6 = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude', color = 'ni', custom_data = ['ni'])
-        figure7 = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude', color = 'zn', custom_data = ['zn'])
-        figure8 = px.scatter_mapbox(df, lat = 'latitude', lon = 'longitude', color = ((df['As'] + df['cd'] + df['cr'] + df['cu'] + df['mn'] + df['pb'] + df['ni'] + df['zn'])/8), custom_data = ['As', 'cd', 'cr', 'cu', 'mn', 'pb', 'ni', 'zn'])
+        figure = px.scatter_mapbox(df, lat = 'rand_lat', lon = 'rand_long', color = 'As', custom_data = ['As', 'cd', 'cr', 'cu', 'mn', 'pb', 'ni', 'zn'], color_continuous_scale = px.colors.cyclical.IceFire, size_max = 15, zoom = 10, range_color = (0, 1000), labels = {'As': 'Element Concentration (ppm)'}, center = {'lat': 51.6214, 'lon': -3.9436})
+        figure1 = px.scatter_mapbox(df, lat = 'rand_lat', lon = 'rand_long', color = 'cd', custom_data = ['cd'], labels = {'cd': 'Cadmium'})
+        figure2 = px.scatter_mapbox(df, lat = 'rand_lat', lon = 'rand_long', color = 'cr', custom_data = ['cr'])
+        figure3 = px.scatter_mapbox(df, lat = 'rand_lat', lon = 'rand_long', color = 'cu', custom_data = ['cu'])
+        figure4 = px.scatter_mapbox(df, lat = 'rand_lat', lon = 'rand_long', color = 'mn', custom_data = ['mn'])
+        figure5 = px.scatter_mapbox(df, lat = 'rand_lat', lon = 'rand_long', color = 'pb', custom_data = ['pb'])
+        figure6 = px.scatter_mapbox(df, lat = 'rand_lat', lon = 'rand_long', color = 'ni', custom_data = ['ni'])
+        figure7 = px.scatter_mapbox(df, lat = 'rand_lat', lon = 'rand_long', color = 'zn', custom_data = ['zn'])
+        figure8 = px.scatter_mapbox(df, lat = 'rand_lat', lon = 'rand_long', color = ((df['As'] + df['cd'] + df['cr'] + df['cu'] + df['mn'] + df['pb'] + df['ni'] + df['zn'])/8), custom_data = ['As', 'cd', 'cr', 'cu', 'mn', 'pb', 'ni', 'zn'])
 
 
         figure.add_trace(figure1.data[0])
@@ -59,10 +57,9 @@ class MapPageView(TemplateView):
         figure.update_layout(
             updatemenus = [
                 dict(
-                    #active = 0,
                     buttons=list([
                         dict(
-                            label = 'All Contaminants',
+                            label = 'All Elements',
                             method = 'update',
                             args = [{'visible': [False, False, False, False, False, False, False, False, True], 'hovertemplate': hovertemplate, 'labels': 'All'}]),
                         dict(
