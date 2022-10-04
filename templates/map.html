@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block content %}
 
     {{ map|safe }}
 
     <div>
-        <p>*Note: The map markers above represent real study results. However, the locations have been randomized to protect our participants' privacy.</p>
+        <p>{% blocktrans %}*Note: The map markers above represent real study results. However, the locations have been randomized to protect our participants' privacy.{% endblocktrans %}</p>
     </div>
 
 {% endblock content %}

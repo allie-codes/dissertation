@@ -1,12 +1,13 @@
 {% extends 'admin/base.html' %}
 {% load crispy_forms_tags %}
+{% load i18n %}
 
 {% block content %}
     <div>
         <form action="." method="POST" enctype="multipart/form-data">
             {{ form|crispy }}
             {% csrf_token %}
-                <button type="submit">Upload File</button>
+                <button type="submit">{% trans "Upload File" %}</button>
         </form>
 
 {% endblock content %}

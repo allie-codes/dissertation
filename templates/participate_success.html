@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title %}Success!{% endblock title %}
+{% load i18n %}
+
+{% block title %}{% blocktrans %}Success!{% endblock title %}
 
 {% block content %}
-<h2>You have successfully submitted your participation form!</h2>
-<p>Thank you for participating in the EcoGardenHealth soil testing citizen science project.</p>
-<p>This is your unique soil sample label number:</p>
+<h2>{% blocktrans %}You have successfully submitted your participation form!{% endblocktrans %}</h2>
+<p>{% blocktrans %}Thank you for participating in the EcoGardenHealth soil testing citizen science project.{% endblocktrans %}</p>
+<p>{% blocktrans %}This is your unique soil sample label number:{% endblocktrans %}</p>
 <h1>{{ participant_id }}</h1>
-<p>Please write it on all of your soil sample bags before delivering or posting them to the university.</p>
-<p>For more information on how to submit your soil sample, please visit our <a href="{% url 'instructions' %}">instructions</a> page.</p>
+<p>{% blocktrans %}Please write it on all of your soil sample bags before delivering or posting them to the university.{% endblocktrans %}</p>
+<p>{% blocktrans %}For more information on how to submit your soil sample, please visit our <a href="{% url 'instructions' %}">instructions</a> page.{% endblocktrans %}</p>
 {% endblock content %}

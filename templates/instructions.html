@@ -1,44 +1,46 @@
 {% extends 'base.html' %}
 
-{% block title %}Soil Sampling Instructions{% endblock title %}
+{% load i18n %}
+
+{% block title %}{% trans "Soil Sampling Instructions" %}{% endblock title %}
 
 {% block content %}
-<h2>Soil Sampling Instructions</h2>
-<h4>You will need:</h4>
+<h2>{% trans "Soil Sampling Instructions" %}</h2>
+<h4>{% trans "You will need:" %}</h4>
 <ul>
-    <li>10 zip-lock sandwich bags (non-compostable/non-biodegradable bags so they won't break before testing)</li>
-    <li>A permanent marker (or self-adhesive labels and pen)</li>
-    <li>A trowel or scoop</li>
-    <li>A box or bag to transport or post your samples</li>
+    <li>{% blocktrans %}10 zip-lock sandwich bags (non-compostable/non-biodegradable bags so they won't break before testing){% endblocktrans %}</li>
+    <li>{% blocktrans %}A permanent marker (or self-adhesive labels and pen){% endblocktrans %}</li>
+    <li>{% blocktrans %}A trowel or scoop{% endblocktrans %}</li>
+    <li>{% blocktrans %}A box or bag to transport or post your samples{% endblocktrans %}</li>
 </ul>
-<h4>To collect your soil sample:</h4>
-<h5>Step 1</h5>
-<p>Label five zip-lock bags with your postcode and DDMM of collection date (eg, 'SA28PP0104' if your property is in SA28PP and you collect the soil on 1st April) and sample ID.</p>
-<p>Sample IDs match your consent form as follows:</p>
+<h4>{% blocktrans %}To collect your soil sample:{% endblocktrans %}</h4>
+<h5>{% blocktrans %}Step 1{% endblocktrans %}</h5>
+<p>{% blocktrans %}Label five zip-lock bags with your postcode and DDMM of collection date (eg, 'SA28PP0104' if your property is in SA28PP and you collect the soil on 1st April) and sample ID.{% endblocktrans %}</p>
+<p>{% blocktrans %}Sample IDs match your consent form as follows:{% endblocktrans %}</p>
 <ul>
-    <li>F-1: front garden</li>
-    <li>B-1: back garden near house (0.5 to 2 meters away)</li>
-    <li>D-1: patch most distant to buildings</li>
-    <li>V-1: veggie patch #1</li>
-    <li>V-2: veggie patch #2</li>
+    <li>{% blocktrans %}F-1: front garden{% endblocktrans %}</li>
+    <li>{% blocktrans %}B-1: back garden near house (0.5 to 2 meters away){% endblocktrans %}</li>
+    <li>{% blocktrans %}D-1: patch most distant to buildings{% endblocktrans %}</li>
+    <li>{% blocktrans %}V-1: veggie patch #1{% endblocktrans %}</li>
+    <li>{% blocktrans %}V-2: veggie patch #2{% endblocktrans %}</li>
 </ul>
-<h5>Step 2</h5>
-<p>At your first location, collect soil from the top 5 cm over a 20 x 20 cm area using a trowel or scoop. Your sample should be the size of a cricket/tennis ball.</p>
-<h5>Step 3</h5>
-<p>Place soil (reasonably dry, without any plant material and stones, please) into the correctly labelled zip-lock bag and seal.</p>
-<h5>Step 4</h5>
-<p>Repeat at the remaining locations. If you don't have all of the locations, don't worry!</p>
-<h5>Step 5</h5>
-<p>'Double bag' each sample to protect the labels and prevent spillage.</p>
-<h5>Step 6</h5>
-<p>Place your samples in a bag or box clearly labelled 'EcoGardenHealth' and drop in at the University (see map below). Alternatively, you can post your samples to us at the address below.</p>
-<p>Please make sure you have correctly labeled your samples and filled in the online questionnaire/consent form before sending us your samples.</p>
-<h4>Thank you!</h4>
+<h5>{% blocktrans %}Step 2{% endblocktrans %}</h5>
+<p>{% blocktrans %}At your first location, collect soil from the top 5 cm over a 20 x 20 cm area using a trowel or scoop. Your sample should be the size of a cricket/tennis ball.{% endblocktrans %}</p>
+<h5>{% blocktrans %}Step 3{% endblocktrans %}</h5>
+<p>{% blocktrans %}Place soil (reasonably dry, without any plant material and stones, please) into the correctly labelled zip-lock bag and seal.{% endblocktrans %}</p>
+<h5>{% blocktrans %}Step 4{% endblocktrans %}</h5>
+<p>{% blocktrans %}Repeat at the remaining locations. If you don't have all of the locations, don't worry!{% endblocktrans %}</p>
+<h5>{% blocktrans %}Step 5{% endblocktrans %}</h5>
+<p>{% blocktrans %}'Double bag' each sample to protect the labels and prevent spillage.{% endblocktrans %}</p>
+<h5>{% blocktrans %}Step 6{% endblocktrans %}</h5>
+<p>{% blocktrans %}Place your samples in a bag or box clearly labelled 'EcoGardenHealth' and drop in at the University (see map below). Alternatively, you can post your samples to us at the address below.{% endblocktrans %}</p>
+<p>{% blocktrans %}Please make sure you have correctly labeled your samples and filled in the online questionnaire/consent form before sending us your samples.{% endblocktrans %}</p>
+<h4>{% blocktrans %}Thank you!{% endblocktrans %}</h4>
 <br>
 <br>
-<h4>You can drop samples at:</h4>
-<p>EcoGardenHealth Soil Sample Collection Box, situated in the Wallace Building (Singleton Campus, SA2 8PP), basement of the building at the right side near Stores room 020. Please enter the building through the main entrance and then go downstairs toward the west end of the building.</p>
-<h4>You can post samples to:</h4>
+<h4>{% blocktrans %}You can drop samples at:{% endblocktrans %}</h4>
+<p>{% blocktrans %}EcoGardenHealth Soil Sample Collection Box, situated in the Wallace Building (Singleton Campus, SA2 8PP), basement of the building at the right side near Stores room 020. Please enter the building through the main entrance and then go downstairs toward the west end of the building.{% endblocktrans %}</p>
+<h4>{% blocktrans %}You can post samples to:{% endblocktrans %}</h4>
 <p>Department of Biosciences</p>
 <p>Wallace Building</p>
 <p>Swansea University</p>

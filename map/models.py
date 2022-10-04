@@ -2,13 +2,14 @@ from django.db import models
 from participants.models import Participant
 from django.urls import reverse
 from geopy.geocoders import Nominatim
+from django.utils.translation import gettext as _
 
 # Create your models here.
 class MapCoordinate(models.Model):
     participant = models.OneToOneField(Participant, on_delete=models.CASCADE, default=True, related_name='result', blank=True)
-    address = models.CharField(max_length=250)
-    latitude = models.CharField(max_length=50, default=0.0)
-    longitude = models.CharField(max_length=50, default=0.0)
+    address = models.CharField(_('address'), max_length=250)
+    latitude = models.CharField(_('latitude'), max_length=50, default=0.0)
+    longitude = models.CharField(_('longitude'), max_length=50, default=0.0)
 
     def __str__(self):
         return str(self.latitude and self.longitude)

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Soil Test Results{% endblock title %}
+{% block title %}{% trans "Soil Test Results" %}{% endblock title %}
 
 {% block content %}
 
@@ -11,17 +11,17 @@
         <table class="table table-light table-striped table-sm table-bordered">
             <thead>
                 <tr>
-                    <th>Postcode</th>
-                    <th>Year Built</th>
-                    <th>Property Type</th>
-                    <th>Construction Material</th>
-                    <th>No of People</th>
-                    <th>Purpose of Garden</th>
-                    <th>Area for Growing Veg</th>
-                    <th>Avg Gardening Hrs</th>
-                    <th>Total Garden Area</th>
-                    <th>Sealed Garden Area</th>
-                    <th>Lawn Garden Area</th>
+                    <th>{% trans "Postcode" %}</th>
+                    <th>{% trans "Year Built" %}</th>
+                    <th>{% trans "Property Type" %}</th>
+                    <th>{% trans "Construction Material" %}</th>
+                    <th>{% trans "No. of People" %}</th>
+                    <th>{% trans "Purpose of Garden" %}</th>
+                    <th>{% trans "Area for Growing Veg" %}</th>
+                    <th>{% trans "Avg Gardening Hrs" %}</th>
+                    <th>{% trans "Total Garden Area" %}</th>
+                    <th>{% trans "Sealed Garden Area" %}</th>
+                    <th>{% trans "Lawn Garden Area" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -56,17 +56,17 @@
         <table class="table table-light table-striped table-sm table-bordered">
             <thead>
                 <tr>
-                    <th>Lawn Type</th>
-                    <th>Veg Garden Area</th>
-                    <th>Ornamental Plant Garden Area</th>
-                    <th>Natural Garden Area</th>
-                    <th>Veg Species</th>
-                    <th>Raised Beds</th>
-                    <th>Compost Use</th>
-                    <th>Compost Frequency</th>
-                    <th>Fertiliser Frequency</th>
-                    <th>Latest Compost Purchase</th>
-                    <th>Veg Pesticide</th>
+                    <th>{% trans "Lawn Type" %}</th>
+                    <th>{% trans "Veg Garden Area" %}</th>
+                    <th>{% trans "Ornamental Plant Garden Area" %}</th>
+                    <th>{% trans "Natural Garden Area" %}</th>
+                    <th>{% trans "Veg Species" %}</th>
+                    <th>{% trans "Raised Beds" %}</th>
+                    <th>{% trans "Compost Use" %}</th>
+                    <th>{% trans "Compost Frequency" %}</th>
+                    <th>{% trans "Fertiliser Frequency" %}</th>
+                    <th>{% trans "Latest Compost Purchase" %}</th>
+                    <th>{% trans "Veg Pesticide" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -96,17 +96,17 @@
         <table class="table table-light table-striped table-sm table-bordered">
             <thead>
                 <tr>
-                    <th>Ornamental Plant Fertiliser</th>
-                    <th>Ornamental Plant Pesticide</th>
-                    <th>Rubble</th>
-                    <th>Rubble Description</th>
-                    <th>Bird Feeders</th>
-                    <th>Pond</th>
-                    <th>House Sparrows</th>
-                    <th>Goldfinches</th>
-                    <th>Robins</th>
-                    <th>Wrens</th>
-                    <th>Cats</th>
+                    <th>{% trans "Ornamental Plant Fertiliser" %}</th>
+                    <th>{% trans "Ornamental Plant Pesticide" %}</th>
+                    <th>{% trans "Rubble" %}</th>
+                    <th>{% trans "Rubble Description" %}</th>
+                    <th>{% trans "Bird Feeders" %}</th>
+                    <th>{% trans "Pond" %}</th>
+                    <th>{% trans "House Sparrows" %}</th>
+                    <th>{% trans "Goldfinches" %}</th>
+                    <th>{% trans "Robins" %}</th>
+                    <th>{% trans "Wrens" %}</th>
+                    <th>{% trans "Cats" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -131,16 +131,16 @@
         <table class="table table-light table-striped table-sm table-bordered">
             <thead>
                 <tr>
-                    <th>Red Foxes</th>
-                    <th>Hedgehogs</th>
-                    <th>Slow Worms</th>
-                    <th>Frogs/Toads</th>
-                    <th>Moles</th>
-                    <th>House Rats</th>
-                    <th>Bumblebees</th>
-                    <th>Ladybirds</th>
-                    <th>Butterflies</th>
-                    <th>Other Wildlife</th>
+                    <th>{% trans "Red Foxes" %}</th>
+                    <th>{% trans "Hedgehogs" %}</th>
+                    <th>{% trans "Slow Worms" %}</th>
+                    <th>{% trans "Frogs/Toads" %}</th>
+                    <th>{% trans "Moles" %}</th>
+                    <th>{% trans "House Rats" %}</th>
+                    <th>{% trans "Bumblebees" %}</th>
+                    <th>{% trans "Ladybirds" %}</th>
+                    <th>{% trans "Butterflies" %}</th>
+                    <th>{% trans "Other Wildlife" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -163,20 +163,20 @@
         
     {% if participant.participant_number.all %}
         <div class="container">
-            <h3>Report for {{ participant.soil_sample_label }}</h3>
+            <h3>{% trans "Report for" %} {{ participant.soil_sample_label }}</h3>
             <table class="table table-light table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th>Sample</th>
-                        <th>Description</th>
-                        <th>Arsenic</th>
-                        <th>Cadmium</th>
-                        <th>Chromium</th>
-                        <th>Copper</th>
-                        <th>Manganese</th>
-                        <th>Lead</th>
-                        <th>Nickel</th>
-                        <th>Zinc</th>
+                        <th>{% trans "Sample" %}</th>
+                        <th>{% trans "Description" %}</th>
+                        <th>{% trans "Arsenic" %}</th>
+                        <th>{% trans "Cadmium" %}</th>
+                        <th>{% trans "Chromium" %}</th>
+                        <th>{% trans "Copper" %}</th>
+                        <th>{% trans "Manganese" %}</th>
+                        <th>{% trans "Lead" %}</th>
+                        <th>{% trans "Nickel" %}</th>
+                        <th>{% trans "Zinc" %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -214,7 +214,7 @@
     {% endif %}
 
     {% if not participant.participant_number.all %}
-        <h3>The results for {{ participant.name }} have not been uploaded yet.</h3>
+        <h3>{% blocktrans %}The results for {{ participant.name }} have not been uploaded yet.{% endblocktrans %}</h3>
     {% endif %}
 
 {% endfor %}

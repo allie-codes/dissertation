@@ -1,9 +1,10 @@
 {% extends 'admin/change_list.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
-<a href="upload-csv/">Upload CSV File</a>
+<a href="upload-csv/">{% trans "Upload CSV File" %}</a>
 
 {{ block.super }}
 
