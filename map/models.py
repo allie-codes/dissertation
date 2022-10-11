@@ -2,7 +2,7 @@ from django.db import models
 from participants.models import Participant
 from django.urls import reverse
 from geopy.geocoders import Nominatim
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 class MapCoordinate(models.Model):

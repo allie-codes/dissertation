@@ -4,7 +4,7 @@ from map.models import MapCoordinate
 from django.urls import reverse
 import random
 import math
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 class Result(models.Model):

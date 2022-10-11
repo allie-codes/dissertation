@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse, resolve
+from .views import SignupPageView
 
 
 # Create your tests here.
@@ -32,7 +33,7 @@ class CustomUserTests(TestCase):
         self.assertTrue(admin_user.is_staff)
         self.assertTrue(admin_user.is_superuser)
 
-class SignupTests(TestCase):
+class SignupPageTests(TestCase):
 
     username = 'newuser'
     email = 'newuser@gmail.com'
@@ -53,4 +54,6 @@ class SignupTests(TestCase):
         self.assertEqual(get_user_model().objects.all().count(), 1)
         self.assertEqual(get_user_model().objects.all()[0].username, self.username)
         self.assertEqual(get_user_model().objects.all()[0].email, self.email)
+
+
     

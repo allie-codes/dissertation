@@ -19,7 +19,7 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #042916">
           <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">EcoGardenHealth</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,7 +71,7 @@
         {% block content %}
         {% endblock content %}
     </div>
-    <footer class="footer mt-auto py-3 bg-light">
+    <footer class="footer mt-auto py-3" style="background-color: #e4f7ed">
       <div class="container">
         <p class="float-end"><a href="#">{% trans "Back to top" %}</a></p>
         <p>&copy; 2022 Swansea University &middot; <a href="#">{% trans "Privacy" %}</a> &middot; <a href="#">{% trans "Terms" %}</a></p>
