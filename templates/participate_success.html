@@ -2,7 +2,7 @@
 
 {% load i18n %}
 
-{% block title %}{% blocktrans %}Success!{% endblock title %}
+{% block title %}{% blocktrans %}Success!{% endblocktrans %}{% endblock title %}
 
 {% block content %}
 <h2>{% blocktrans %}You have successfully submitted your participation form!{% endblocktrans %}</h2>
@@ -10,5 +10,5 @@
 <p>{% blocktrans %}This is your unique soil sample label number:{% endblocktrans %}</p>
 <h1>{{ participant_id }}</h1>
 <p>{% blocktrans %}Please write it on all of your soil sample bags before delivering or posting them to the university.{% endblocktrans %}</p>
-<p>{% blocktrans %}For more information on how to submit your soil sample, please visit our <a href="{% url 'instructions' %}">instructions</a> page.{% endblocktrans %}</p>
+<p>{% blocktrans %}For more information on how to submit your soil sample, please visit our {% endblocktrans %}<a href="{% url 'instructions' %}">{% blocktrans %}instructions</a> page.{% endblocktrans %}</p>
 {% endblock content %}

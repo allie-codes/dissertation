@@ -18,7 +18,7 @@ class ParticipantFormView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        #form.instance.soil_sample_label = secrets.token_hex(nbytes=4).upper()
+        form.instance.soil_sample_label = secrets.token_hex(nbytes=4).upper()
         form.instance.sample_label = uuid.uuid4()
         return super().form_valid(form)  
         
