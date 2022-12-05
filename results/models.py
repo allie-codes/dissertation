@@ -1,9 +1,9 @@
 from django.db import models
 from participants.models import Participant
-from map.models import MapCoordinate
 from django.urls import reverse
 import random
 import math
+from geopy.geocoders import Nominatim
 from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
@@ -81,15 +81,21 @@ class Result(models.Model):
         participant = Participant.objects.filter(soil_sample_label=self.sample_label).first()
         return participant
 
+    def get_address(self):
+        participant = self.participant_number
+        return participant.address
+
     def get_latitude(self):
-        map_coordinate = MapCoordinate.objects.filter(participant = self.participant_number).first()
-        latitude = map_coordinate.latitude
-        return latitude
+        address = self.get_address()
+        geocoder = Nominatim(user_agent='map')
+        location = geocoder.geocode(address)
+        return location.latitude
 
     def get_longitude(self):
-        map_coordinate = MapCoordinate.objects.filter(participant = self.participant_number).first()
-        longitude = map_coordinate.longitude
-        return longitude
+        address = self.get_address()
+        geocoder = Nominatim(user_agent='map')
+        location = geocoder.geocode(address)
+        return location.longitude
 
     def generate_random_latitude(self):
         radius = 7000
