@@ -70,7 +70,13 @@ AUTHENTICATION_BACKENDS = (
 )
 #come back and change this when adding an SMTP server to send emails
 # 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
+# 'django.core.mail.backends.console.EmailBackend' 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp-relay.sendinblue.com'
+EMAIL_HOST_USER = 'afgriffin91@gmail.com'
+EMAIL_HOST_PASSWORD = 'RZKa0GVzOcjnI3q1'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 ACCOUNT_SESSION_REMEMBER = True
 

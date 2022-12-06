@@ -11,7 +11,7 @@
         <table class="table table-light table-striped table-sm table-bordered">
             <thead>
                 <tr>
-                    <th>Postcode</th>
+                    <th>Address</th>
                     <th>Year Built</th>
                     <th>Property Type</th>
                     <th>Construction Material</th>
@@ -26,7 +26,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ participant.postcode }}</td>
+                    <td>{{ participant.address }}</td>
                     <td>{{ participant.year_property_built }}</td>
                     {% if not participant.property_type_other %}
                         <td>{{ participant.property_type }}</td>
