@@ -180,4 +180,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-DEFAULT_FROM_EMAIL = 'admin@soiltesting.com'
+DEFAULT_FROM_EMAIL = 'admin@ecogardenhealth.com'
