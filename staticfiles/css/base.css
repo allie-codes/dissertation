@@ -1,0 +1,19 @@
+/* source: https://getbootstrap.com/docs/5.2/examples/carousel/
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+  }
+
+.navbar-custom {
+    background-color: #042916;
+}
+
+  
+  
+ 

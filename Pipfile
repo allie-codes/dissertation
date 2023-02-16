@@ -12,6 +12,10 @@ geopy = "*"
 plotly = "*"
 pandas = "*"
 chart-studio = "*"
+whitenoise = "*"
+gunicorn = "*"
+dj-database-url = "*"
+crispy-bootstrap5 = "*"
 
 [dev-packages]
 

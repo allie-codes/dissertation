@@ -57,11 +57,11 @@ class ParticipantForm(forms.ModelForm):
             'ladybird': _('Do you see ladybirds in your garden? If yes, how often during the peak season?'),
             'butterfly': _('Do you see butterflies in your garden? If yes, how often during the peak season?'),
             'other_notable_wildlife': _('Any other notable animal/wildlife observations in your garden during the last year:'),
-            'sample_1_description': _('Please provide a description of your <b>soil sample #1</b>: label on bag, sample location (front, back most distant to building, veggie patch 1, veggie patch 2), distance to house:'),
-            'sample_2_description': _('Please provide a description of your <b>soil sample #2</b>: label on bag, sample location (front, back most distant to building, veggie patch 1, veggie patch 2), distance to house:'),
-            'sample_3_description': _('Please provide a description of your <b>soil sample #3</b>: label on bag, sample location (front, back most distant to building, veggie patch 1, veggie patch 2), distance to house:'),
-            'sample_4_description': _('Please provide a description of your <b>soil sample #4</b>: label on bag, sample location (front, back most distant to building, veggie patch 1, veggie patch 2), distance to house:'),
-            'sample_5_description': _('Please provide a description of your <b>soil sample #5</b>: label on bag, sample location (front, back most distant to building, veggie patch 1, veggie patch 2), distance to house:'),
+            'sample_1_description': _('Please provide a description of your soil sample #1: label on bag, sample location (front, back most distant to building, veggie patch 1, veggie patch 2), distance to house:'),
+            'sample_2_description': _('Please provide a description of your soil sample #2: label on bag, sample location (front, back most distant to building, veggie patch 1, veggie patch 2), distance to house:'),
+            'sample_3_description': _('Please provide a description of your soil sample #3: label on bag, sample location (front, back most distant to building, veggie patch 1, veggie patch 2), distance to house:'),
+            'sample_4_description': _('Please provide a description of your soil sample #4: label on bag, sample location (front, back most distant to building, veggie patch 1, veggie patch 2), distance to house:'),
+            'sample_5_description': _('Please provide a description of your soil sample #5: label on bag, sample location (front, back most distant to building, veggie patch 1, veggie patch 2), distance to house:'),
             'agreement': _('I agree to participate in the EcoGardenHealth study.')
         }
         help_texts = {
