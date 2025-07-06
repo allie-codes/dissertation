@@ -39,7 +39,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '.swansea.ac.uk']
+ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '.swansea.ac.uk', '.onrender.com']
 
 
 # Application definition
@@ -108,6 +108,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -199,6 +200,6 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 DEFAULT_FROM_EMAIL = 'admin@ecogardenhealth.com'
 
-import dj_database_url
+import dj_database_url  # type: ignore
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)

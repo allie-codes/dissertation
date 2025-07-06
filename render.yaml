@@ -1,0 +1,24 @@
+databases:
+  - name: dissertation-prod-db
+    databaseName: dissertation_prod
+    user: dissertation_prod_user
+
+services:
+  - type: web
+    name: dissertation-prod
+    runtime: python3
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn soil_testing_project.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: dissertation-prod-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: 0
+      - key: ALLOWED_HOSTS
+        value: "*" 
