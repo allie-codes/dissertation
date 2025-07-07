@@ -5,9 +5,9 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-from soil_testing_project import config 
+import os
 
-mapbox_access_token = config.mapbox_access_token
+mapbox_access_token = os.environ.get('MAPBOX_ACCESS_TOKEN')
 
 # Create your views here.
 class MapPageView(TemplateView):
